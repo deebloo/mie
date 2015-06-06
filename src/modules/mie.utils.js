@@ -1,3 +1,6 @@
+/**
+ * @namespace mie.utils
+ */
 mie.utils = mie.utils || {};
 
 /**

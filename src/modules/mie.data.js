@@ -1,9 +1,12 @@
+/**
+ * @namespace mie.data
+ */
 mie.data = mie.data || {};
 
 /**
- * @name mie.list
+ * @name mie.data.list
  * 
- * @memberof mie
+ * @memberof mie.data
  *
  * @description creates an object list with a length and forEach method
  * 
@@ -13,7 +16,7 @@ mie.data.list = function list() {
   /**
    * @name list
    *
-   * @memberof mie.list
+   * @memberof mie.data.list
    */
   var list = {
     /**

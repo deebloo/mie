@@ -1,7 +1,5 @@
-mie.factory = mie.factory || {};
-
 /**
- * @name mie.factory
+ * @name namespace.factory
  * 
  * @memberof mie
  *
@@ -9,7 +7,7 @@ mie.factory = mie.factory || {};
  *
  * @returns {Function}
  */
-mie.factory = (function() {
+mie.factory = mie.factory || mie.factory = (function() {
   var factories = mie.data.list();
 
  /**

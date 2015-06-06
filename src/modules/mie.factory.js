@@ -30,8 +30,6 @@ mie.factory = (function() {
         for(var i = 0, len = this._instanceOf.length; i < len; i++) {
           factories[this._instanceOf[i]].data.remove(this._id);
         }
-
-        return null;
       }
     };
 

@@ -7,7 +7,7 @@
  *
  * @returns {Function}
  */
-mie.factory = mie.factory || mie.factory = (function() {
+mie.factory = mie.factory || (function() {
   var factories = mie.data.list();
 
  /**

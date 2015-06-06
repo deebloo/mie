@@ -9,6 +9,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       './src/*.js',
+      './src/modules/*.js',
       './test/*.spec.js'
     ],
 
@@ -26,7 +27,7 @@ module.exports = function(config) {
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: false,
 
-    browsers: ['Chrome', 'Firefox', 'IE', 'Safari'],
+    browsers: ['PhantomJS'],
 
     reporters: ['coverage', 'progress'],
 

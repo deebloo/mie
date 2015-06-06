@@ -1,4 +1,4 @@
-var person = MIE.factory('person').extend({
+var person = mie.factory('person').extend({
 	walk: function() {
 		console.log('walk');
 	},
@@ -7,13 +7,13 @@ var person = MIE.factory('person').extend({
 	}
 });
 
-var stealthy = MIE.factory('stealthy').extend({
+var stealthy = mie.factory('stealthy').extend({
 	sneak: function() {
 		console.log('sneak');
 	}
 });
 
-var solider = MIE.factory('solider').is('person').extend({
+var solider = mie.factory('solider').is('person').extend({
 	march: function() {
 		console.log('march');
 	},
@@ -22,7 +22,7 @@ var solider = MIE.factory('solider').is('person').extend({
 	}
 });
 
-var sniper = MIE.factory('sniper').is('solider').is('stealthy').extend({
+var sniper = mie.factory('sniper').is('solider').is('stealthy').extend({
 	march: function() {
 		console.log('march');
 	},

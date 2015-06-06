@@ -1,16 +1,16 @@
 describe('mie.factory', function() {
   beforeEach(function() {
-    var person = MIE.factory('person').extend({
+    var person = mie.factory('person').extend({
       walk: true,
       talk: true
     });
 
-    var solider = MIE.factory('solider').is('person').extend({
+    var solider = mie.factory('solider').is('person').extend({
       fire: true,
       march: true
     });
 
-    var sniper = MIE.factory('sniper').is('solider').extend({
+    var sniper = mie.factory('sniper').is('solider').extend({
       sneak: true,
       headShot: true
     });
@@ -33,9 +33,9 @@ describe('mie.factory', function() {
 
 
   it('should create a big array', function() {
-    var danny = MIE.factory('person').get('danny');
-    var aaron = MIE.factory('solider').get('aaron');
-    var cody = MIE.factory('sniper').get('cody');
+    var danny = mie.factory('person').get('danny');
+    var aaron = mie.factory('solider').get('aaron');
+    var cody = mie.factory('sniper').get('cody');
 
     expect(danny._instanceOf.indexOf('person')).toBeGreaterThan(-1);
     expect(danny._instanceOf.indexOf('solider')).toBeLessThan(0);

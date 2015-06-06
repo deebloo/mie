@@ -51,6 +51,11 @@ var cody = sniper.create('cody', {
   lname: 'Henthorne'
 });
 
-// will contain {danny: {...}, aaron: {...}, cody: {...}}
-var createdPeople = person.list();
+person.list(); // {danny: {...}, aaron: {...}, cody: {...}}
+soldier.list(); // {aaron: {...}, cody: {...}}
+sniper.list(); // {cody: {...}}
+
+person.factory('person').get('cody') // returns cody
+person.factory('soldier').get('danny') // returns undefined
+
 ```

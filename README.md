@@ -1,6 +1,6 @@
 # mie
 
-An experiment with creating and inheriting objects from stateful factories.
+An experiment with creating composable factories to stamp out objects.
 
 ```JS
 var person = mie.factory('person').extend({

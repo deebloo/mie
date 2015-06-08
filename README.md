@@ -37,7 +37,7 @@ var aaron = solider.create('aaron', {
 	lname: 'Druck'
 });
 
-// Create a person
+// Create a sniper
 var cody = sniper.create('cody', {
 	fname: 'Cody',
 	lname: 'Henthorne'

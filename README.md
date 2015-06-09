@@ -1,6 +1,6 @@
 # mie
 
-An experiment with creating composable factories to stamp out objects.
+An experiment with creating declarative composable factories to stamp out objects.
 
 ```JS
 var person = mie.factory('person').extend({

@@ -1,21 +1,21 @@
 /**
  * @name namespace.factory
- * 
+ *
  * @memberof mie
  *
  * @description returns a factory for stamping out objects
  *
  * @returns {Function}
  */
-mie.factory = mie.factory || (function() {
+mie.factory = (function() {
   var factories = mie.data.list();
 
- /**
+  /**
    * @name $factory
-   * 
+   *
    * @memberof mie.factory
    *
-   * @description 
+   * @description
    * returns and instance of a factory for stamping out objects.
    * A solider factory will stamp out soldiers ext.
    * A factory instance keeps track of all of it's creations.
@@ -38,7 +38,7 @@ mie.factory = mie.factory || (function() {
       },
       /**
        * @name factory.create
-       * 
+       *
        * @memberof factory
        *
        * @description create and object from the factory
@@ -60,7 +60,7 @@ mie.factory = mie.factory || (function() {
         var x;
         for(var i = 0, len = this._extends.length; i < len; i++) {
           x = factories[this._extends[i]];
-          
+
           x.data = x.data || mie.data.list();
           x.data.add(id, newObj);
 
@@ -71,24 +71,38 @@ mie.factory = mie.factory || (function() {
       },
       /**
        * @name factory.is
-       * 
+       *
        * @memberof factory
        *
        * @description fines a factory to mixin
        *
        * @returns {Object}
        */
-      is: function is(factory) {
-        mie.utils.extend(this._proto(), factories[factory]._proto());
+      is: function is() {
 
-        this._extends = this._extends.concat(factories[factory]._extends);
-        this._extends.push(factory);
+        var i = 0, current, factory;
+
+        while(i < arguments.length) {
+          current = arguments[i];
+          factory = factories[current];
+
+          if(!factory) {
+            throw new Error('"' + current + '"' + ' is not a factory.');
+          }
+
+          mie.utils.extend(this._proto(), factory._proto());
+
+          this._extends = this._extends.concat(factory._extends);
+          this._extends.push(current);
+
+          i++;
+        }
 
         return this;
       },
       /**
        * @name factory.extend
-       * 
+       *
        * @memberof factory
        *
        * @description extends the factory
@@ -102,7 +116,7 @@ mie.factory = mie.factory || (function() {
       },
       /**
        * @name factory.get
-       * 
+       *
        * @memberof factory
        *
        * @description get a factory by its id
@@ -114,7 +128,7 @@ mie.factory = mie.factory || (function() {
       },
       /**
        * @name factory.list
-       * 
+       *
        * @memberof factory
        *
        * @description retuns all objects the given factory has created
@@ -133,11 +147,9 @@ mie.factory = mie.factory || (function() {
       return factories[id];
     }
 
-    var newFactory = $factory();
+    factories.add(id, $factory());
 
-    factories.add(id, newFactory);
-
-    return newFactory;
+    return factories[id];
   }
 
 }());

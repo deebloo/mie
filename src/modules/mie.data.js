@@ -29,7 +29,7 @@ mie.data.list = function list() {
 
       this.length = this.length >= 0 ? this.length : 0;
       
-      current = this[id] = data;
+      current = this[id] = data
       current._id = id;
 
       this.length++;

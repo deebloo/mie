@@ -7,7 +7,13 @@ var person = mie.factory('person').extend({
 	}
 });
 
-var solider = mie.factory('soldier').is('person').extend({
+var stealthy = mie.factory('stealthy').extend({
+	sneak: function() {
+		console.log('sneak');
+	}
+});
+
+var solider = mie.factory('solider').is('person').extend({
 	march: function() {
 		console.log('march');
 	},
@@ -16,12 +22,13 @@ var solider = mie.factory('soldier').is('person').extend({
 	}
 });
 
-var sneaky = mie.factory('sneaky').is('soldier').extend({
-  isSneaky: true
-});
-
-var sniper = mie.factory('sniper').is('sneaky').extend({
-  headShot: true
+var sniper = mie.factory('sniper').is('solider').is('stealthy').extend({
+	march: function() {
+		console.log('march');
+	},
+	shoot: function() {
+		console.log('shoot');
+	}
 });
 
 var danny = person.create('danny', {
@@ -39,11 +46,5 @@ var cody = sniper.create('cody', {
 	lname: 'Henthorne'
 });
 
-person.extend({
-  foo: true
-});
-
 console.log(person.list());
-
-
 

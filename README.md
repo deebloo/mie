@@ -3,53 +3,59 @@
 An experiment with creating composable factories to stamp out objects.
 
 ```JS
-// A person
 var person = mie.factory('person').extend({
-	walk: true,
-	talk: true
+  walk: function() {
+    console.log('walk');
+  },
+  talk: function() {
+    console.log('talk');
+  }
 });
 
-// A soldier who is a person
-var solider = mie.factory('soldier').is('person').extend({
-	march: true,
-	shoot: true
+var stealthy = mie.factory('stealthy').extend({
+  sneak: function() {
+    console.log('sneak');
+  }
 });
 
-// A a sneaky soldier who is a solider who is a person
-var sneakySoldier = mie.factory('sneaky').is('soldier').extend({
-  isSneaky: true
+var solider = mie.factory('solider').is('person').extend({
+  march: function() {
+    console.log('march');
+  },
+  shoot: function() {
+    console.log('shoot');
+  }
 });
 
-// A a sniper who is a sneaky solider who is a solider who is a person :)
-var sniper = mie.factory('sniper').is('sneakySoldier').extend({
-  headShot: true
+var sniper = mie.factory('sniper').is('solider').is('stealthy').extend({
+  march: function() {
+    console.log('march');
+  },
+  shoot: function() {
+    console.log('shoot');
+  }
 });
 
-// Create a person
 var danny = person.create('danny', {
-	fname: 'Danny',
-	lname: 'Blue'
+  fname: 'Danny',
+  lname: 'Blue'
 });
 
-// Create a soldier
 var aaron = solider.create('aaron', {
-	fname: 'Aaron',
-	lname: 'Druck'
+  fname: 'Aaron',
+  lname: 'Druck'
 });
 
-// Create a person
 var cody = sniper.create('cody', {
-	fname: 'Cody',
-	lname: 'Henthorne'
+  fname: 'Cody',
+  lname: 'Henthorne'
 });
 
-// add something to person
-person.extend({
-  foo: true
-});
+person.list(); // {danny: {...}, aaron: {...}, cody: {...}}
+soldier.list(); // {aaron: {...}, cody: {...}}
+sniper.list(); // {cody: {...}}
 
-// THEY ARE ALL PEOPLE!
-console.log(person.list());
-
+person.factory('person').get('cody') // returns cody
+person.factory('soldier').get('danny') // returns undefined
 
 ```

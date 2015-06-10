@@ -55,7 +55,7 @@ person.list(); // {danny: {...}, aaron: {...}, cody: {...}}
 soldier.list(); // {aaron: {...}, cody: {...}}
 sniper.list(); // {cody: {...}}
 
-person.factory('person').get('cody') // returns cody
-person.factory('soldier').get('danny') // returns undefined
+mie.factory('person').get('cody') // returns cody
+mie.factory('soldier').get('danny') // returns undefined
 
 ```

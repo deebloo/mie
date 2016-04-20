@@ -28,11 +28,8 @@ var solider = mie.factory('solider').is('person').extend({
 });
 
 var sniper = mie.factory('sniper').is('solider', 'stealthy').extend({
-  march: function() {
-    console.log('march');
-  },
   shoot: function() {
-    console.log('shoot');
+    console.log('snipe!');
   }
 });
 
